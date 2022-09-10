@@ -91,7 +91,7 @@ def play():
 	return rounds
 
 def main():
-	if len(sys.argv) == 1:
+	if len(sys.argv) != 2 or not sys.argv[1].isdigit():
 		print("Please specify the number of simulation loops.")
 	else: 
 		rounds = []
