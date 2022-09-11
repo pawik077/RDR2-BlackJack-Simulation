@@ -105,7 +105,7 @@ def main():
 		print(f"Mode: {mode[0] if len(mode) == 1 else mode}")
 		print(f"Max rounds: {max(rounds)}")
 		print(f"Min rounds: {min(rounds)}")
-		plt.grid()
+		plt.grid(which='both'), plt.xlabel('Rounds'), plt.ylabel('Frequency')
 		plt.hist(rounds, bins=range(1, max(rounds) + 2))
 		plt.show()
 
