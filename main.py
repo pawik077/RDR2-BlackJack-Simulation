@@ -2,6 +2,7 @@ import random as rd
 import sys
 import statistics as st
 import matplotlib.pyplot as plt
+from time import time
 
 # borrowed from Blackjack project
 CARD_SUITS = ['Spades', 'Hearts', 'Diamonds', 'Clubs']
@@ -96,9 +97,12 @@ def main():
 		print("Please specify the number of simulation loops.")
 	else: 
 		rounds = []
+		tStart = time()
 		for i in range(int(sys.argv[1])):
 			rounds.append(play())
+		tEnd = time()
 		mode = st.multimode(rounds)
+		print(f"Simulation time: {tEnd - tStart:.2f}s")
 		print(f"Average rounds: {st.mean(rounds):.2f}")
 		print(f"Median rounds: {st.median(rounds)}")
 		print(f"Standard deviation: {st.stdev(rounds):.2f}")
