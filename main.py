@@ -1,5 +1,6 @@
 import random as rd
 import sys
+import statistics as st
 import matplotlib.pyplot as plt
 
 # borrowed from Blackjack project
@@ -97,7 +98,11 @@ def main():
 		rounds = []
 		for i in range(int(sys.argv[1])):
 			rounds.append(play())
-		print(f"Average rounds: {sum(rounds) / len(rounds):.2f}")
+		mode = st.multimode(rounds)
+		print(f"Average rounds: {st.mean(rounds):.2f}")
+		print(f"Median rounds: {st.median(rounds)}")
+		print(f"Standard deviation: {st.stdev(rounds):.2f}")
+		print(f"Mode: {mode[0] if len(mode) == 1 else mode}")
 		print(f"Max rounds: {max(rounds)}")
 		print(f"Min rounds: {min(rounds)}")
 		plt.grid()
